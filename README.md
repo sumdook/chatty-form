@@ -1,10 +1,6 @@
 <p align="center">
-
-  <!-- <img height="200px" alt="templogo" src="https://user-images.githubusercontent.com/1863771/76433547-c0e94e80-63b4-11ea-9cca-c859226e5021.png"> -->
-
-<br><br>
-<b>A highly theme-able and customisable form in the shape of a chat based interface for React.</b>
-
+ <img height="360px" alt="logo" src="https://chatty-form.netlify.app/og-image-1200x630.jpg"> <br/><br/><br/>
+  <b>A highly theme-able and customisable form in the shape of a chat based interface for React.</b>
 </p>
 
 ## Getting Started
@@ -39,4 +35,4 @@ There you go! We are now successfully using chatty-form.
 
 ---
 
-#### You can find detailed documentation on the website.
+#### You can find detailed [documentation](https://chatty-form.netlify.app/docs) on the [website](https://chatty-form.netlify.app/).

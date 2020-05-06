@@ -5,14 +5,14 @@
   "description": "A highly theme-able and customisable form in the shape of a chat based interface for React.",
   "author": "Soumik Sur <soumiksur.me@gmail.com>",
   "repository": "https://github.com/sumdook/chatty-form",
+  "homepage": "https://chatty-form.netlify.app/",
   "keywords": [
     "react",
     "chat",
     "ui",
     "form",
-    "components",
-    "chatty-form",
-    "theme"
+    "component",
+    "themes"
   ],
   "source": "components/index.js",
   "scripts": {
