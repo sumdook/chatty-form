@@ -2,6 +2,18 @@
   "name": "chatty-form",
   "version": "1.0.0",
   "license": "MIT",
+  "description": "A highly theme-able and customisable form in the shape of a chat based interface for React.",
+  "author": "Soumik Sur <soumiksur.me@gmail.com>",
+  "repository": "https://github.com/sumdook/chatty-form",
+  "keywords": [
+    "react",
+    "chat",
+    "ui",
+    "form",
+    "component",
+    "chatty-form",
+    "theme"
+  ],
   "source": "components/index.js",
   "scripts": {
     "dev": "rollup -c -w",
@@ -9,7 +21,6 @@
   },
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
-  "types": "lib/types",
   "dependencies": {
     "@emotion/styled": "^10.0.27",
     "@rebass/forms": "^4.0.6",

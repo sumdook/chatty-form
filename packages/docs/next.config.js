@@ -1,7 +1,3 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
-
 const mdPlugins = [
   require('remark-autolink-headings'),
   require('remark-emoji'),
@@ -10,7 +6,7 @@ const mdPlugins = [
   require('remark-unwrap-images'),
 ];
 
-module.exports = withBundleAnalyzer({
+module.exports = {
   pageExtensions: ['js', 'md', 'mdx'],
   webpack: (config, { defaultLoaders }) => {
     config.module.rules.push({
@@ -28,4 +24,4 @@ module.exports = withBundleAnalyzer({
 
     return config;
   },
-});
+};
