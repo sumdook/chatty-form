@@ -26,7 +26,7 @@ export default function Header() {
         </Styled.h2>
       </Link>
       <Flex>
-        <Link href="/docs/getting-started">
+        <Link href="/docs">
           <Button sx={{ display: ['block', 'block', 'none'], mr: 3, py: 2 }}>
             Docs
           </Button>

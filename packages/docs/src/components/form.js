@@ -104,21 +104,24 @@ export default function Form() {
                 </span>{' '}
                 it on{' '}
                 <a
-                  href="github.com"
+                  target="_blank"
+                  href="https://github.com/sumdook/chatty-form/tree/master/packages/chatty-form"
                   sx={{ color: 'white', fontWeight: 'bold' }}
                 >
                   github
                 </a>{' '}
                 or alternatively let me know what I can improve upon, on{' '}
                 <a
-                  href="www.github.com"
+                  target="_blank"
+                  href="https://github.com/sumdook/chatty-form/issues"
                   sx={{ color: 'white', fontWeight: 'bold' }}
                 >
                   github issues
                 </a>{' '}
                 or my{' '}
                 <a
-                  href="www.github.com"
+                  href="https://twitter.com/sumdook"
+                  target="_blank"
                   sx={{ color: 'white', fontWeight: 'bold' }}
                 >
                   twitter.
