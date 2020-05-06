@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, Container, Flex, Box, Text, Button } from 'theme-ui';
+
 import Link from 'next/link';
 import Header from '../src/components/header';
 import ThemeChanger from '../src/components/theme-changer';
