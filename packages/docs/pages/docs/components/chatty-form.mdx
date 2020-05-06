@@ -1,0 +1,151 @@
+import { ChattyForm, Input, Select } from 'chatty-form';
+
+import ScrollParentExample from '../../../src/examples/scroll-parent';
+
+# ChattyForm
+
+The **ChattyForm** component is a parent component which has to be wrapped around any of the data capturing components (Input, Select or Multiselect) to make the form functional. It takes care of the state of the form, handles autoScroll, orchestrates animations and controls the theme of the form.
+
+Each child of ChattyForm **must have a diffferent name prop** to function properly.
+
+```js
+import { ChattyForm, Input } from 'chatty-form';
+```
+
+```.jsx
+<ChattyForm>
+  <Input
+    name="name"
+    question="Howdy! What's your name?"
+    placeholder="Type your answer"
+  />
+</ChattyForm>
+```
+
+### Form state
+
+This component controlls the form state and is the your only point of access to the state of the form. It has 2 props to facilitate the same.
+
+1. It accepts a **onChange** prop which takes a function which recieves the form's current state as an argument. It is called every time the user inputs some form of data.
+2. It accepts a **onSubmit** prop which takes a function which recieves the form's final state as an argument. It is called after the last question is answered.
+
+Example Below
+
+<ChattyForm
+  disableAutoScroll
+  onSubmit={(formState) => alert('calling onSubmit')}
+  onChange={(formState) => alert('calling onChange')}
+>
+  <Input
+    name="name"
+    question="Howdy! What's your name?"
+    placeholder="Type your answer"
+  />
+  <Select
+    name="pet"
+    question="Do you like dogs more or cats?"
+    options={[
+      { label: 'Dogs', value: 'dogs' },
+      { label: 'Cats', value: 'cats' },
+    ]}
+  />
+</ChattyForm>
+
+```jsx
+<ChattyForm
+  disableAutoScroll
+  onSubmit={(formState) => alert('calling onSubmit')}
+  onChange={(formState) => alert('calling onChange')}
+>
+  <Input
+    name="name"
+    question="Howdy! What's your name?"
+    placeholder="Type your answer"
+  />
+  <Select
+    name="pet"
+    question="Do you like dogs more or cats?"
+    options={[
+      { label: 'Dogs', value: 'dogs' },
+      { label: 'Cats', value: 'cats' },
+    ]}
+  />
+</ChattyForm>
+```
+
+### Themeing
+
+This the entry point for styling the form. It takes an custome theme object throught the theme prop which is deepmerged with the default theme.
+
+[Theme and styling guide can be found here.](/docs/styling)
+
+### Auto Scrolling
+
+This component also takes care of scrolling your window to the latest rendered question by default.
+However, you have options to modify this behaviour.
+
+1. You can disable the default scrolling behaviour by passing **disableAutoScroll** prop.
+2. You might now want your window to scroll down but just scroll down a parent **`<div/>`** which has **`overflow: scroll`**. This component takes a **scrollParent** prop which accepts a ref to the said div.
+
+#### scrollParent Example
+
+<ScrollParentExample />
+
+```jsx
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
+import { ChattyForm, Input, Select, MultiSelect } from 'chatty-form';
+
+export default function ScrollParentExample() {
+  const myref = React.useRef();
+  return (
+    <div
+      ref={myref}
+      sx={{
+        height: 300,
+        overflowY: 'scroll',
+        border: '1px solid rgba(0,0,0,0.2)',
+        px: 2,
+      }}
+    >
+      <ChattyForm scrollParent={myref}>
+        <Input
+          name="name"
+          question="Howdy! What's your name?"
+          placeholder="Type your answer"
+        />
+        <Select
+          name="pet"
+          question="Do you like dogs more or cats?"
+          options={[
+            { label: 'Dogs', value: 'dogs' },
+            { label: 'Cats', value: 'cats' },
+          ]}
+        />
+
+        <MultiSelect
+          name="multi"
+          question="Which of these are fruits?"
+          options={[
+            { label: 'Pumpkins', value: 'Pumpkins' },
+            { label: 'Peppers', value: 'Peppers' },
+            { label: 'Cucumber', value: 'Cucumber' },
+            { label: 'Tomato  ', value: 'Tomato' },
+            { label: 'Peas  ', value: 'Peas' },
+          ]}
+        />
+      </ChattyForm>
+    </div>
+  );
+}
+```
+
+## Props
+
+| Name              | Type                          | Description                                                             |
+| ----------------- | :---------------------------- | ----------------------------------------------------------------------- |
+| theme             | Object                        | theme object to me merged with default theme for styling                |
+| onSubmit          | Function: (formState) => void | called when the last question is answered                               |
+| onChange          | Function: (formState) => void | called on every answered 1uestion                                       |
+| disableAutoScroll | Boolean                       | disables default behaviour of scrolling to the bottom for new questions |
+| scrollParent      | ref                           | ref to the dom element inside which form is supposed to scroll          |

@@ -1,0 +1,82 @@
+# Input
+
+Input is a type to capture data the user could enter through keyboard. Works just like a traditional HTML input element under the hood.
+
+```.jsx
+<ChattyForm disableAutoScroll>
+  <Input
+    name="name"
+    question="Howdy! What's your name?"
+    placeholder="Type your answer"
+  />
+  <Input
+    name="age"
+    question=" What's your age?"
+    type="number"
+    placeholder="Type your answer"
+  />
+</ChattyForm>
+```
+
+Upon answering, the input returns the string to the form's state
+
+```js
+// formState
+
+{ name: 'Typed name', age: 'Typed Age'}
+
+```
+
+## Props
+
+In addition to the [Common Props](/docs/common-props) which are found in every data input element (Input, Select and MultiSelect) here are the props the `Input` component accepts.
+
+### width
+
+| Type                 |  Default   | Description             |
+| -------------------- | :--------: | ----------------------- |
+| number \|\| [number] | [320, 400] | Width of inputContainer |
+
+Accepts total width of the inputContainer as a number(in pixels). For responsive styling, it accepts an array of number for different breakpoints.
+
+### type
+
+| Type   | Default | Description               |
+| ------ | :-----: | ------------------------- |
+| string |    -    | Type of the input element |
+
+The type of input. Works similar to `type` atribute of input DOM element. However only types which take input from keyboard, such as `number` or `password` will work.
+
+### placeholder
+
+| Type   | Default | Description                       |
+| ------ | :-----: | --------------------------------- |
+| string |    -    | Placeholder for the input element |
+
+### validate(wip)
+
+| Type                             | Default | Description                                                   |
+| -------------------------------- | :-----: | ------------------------------------------------------------- |
+| Function <br/>(answer) => {bool} |    -    | Function to validate weather or not answer should be accepted |
+
+Validate prop accepts a function which takes the answer submitted as the input. If the function returns true, the form proceeds with the next question. Else, you can return false and throw an error.
+Currently there is no way to show error state inside the form, and you have to use external resources to notify the end user of the error e.g a toast notificatio etc.
+
+Example below
+
+```.jsx
+<ChattyForm disableAutoScroll>
+  <Input
+    name="name"
+    question="Howdy! What's your name?"
+    placeholder="Try submitting without an answer"
+    validate={(name) => {
+      if (name === '') {
+        alert('Maybe you should type something!');
+        return false;
+      }
+      return true;
+    }}
+  />
+</ChattyForm>
+```

@@ -1,0 +1,50 @@
+# MultiSelect
+
+The **MultiSelect** component gives the user user a way to choose multiple(or none) options as an answer to a question.
+
+```.jsx
+<ChattyForm>
+  <MultiSelect
+    name="multi"
+    question="Which of these are fruits?"
+    options={[
+      { label: 'Pumpkins', value: 'pumpkins' },
+      { label: 'Peppers', value: 'peppers' },
+      { label: 'Cucumber', value: 'cucumber' },
+      { label: 'Tomato  ', value: 'tomato' },
+      { label: 'Peas  ', value: 'peas' },
+    ]}
+  />
+</ChattyForm>
+```
+
+Upon submission the formState gets assigned array of selected objects from the options w.r.t it's name prop. (Or an empty array if none of these are selected)
+
+```js
+// formState
+
+{
+  multi: [
+    { label: 'Pumpkins', value: 'pumpkins' },
+    { label: 'Peppers', value: 'peppers' },
+  ];
+}
+```
+
+## Props
+
+In addition to the [Common Props](/docs/common-props) which are found in every data input element (Input, Select and MultiSelect) here are the props the **MultiSelect** component accepts.
+
+### options
+
+| Type                                                                       | Description                              |
+| -------------------------------------------------------------------------- | ---------------------------------------- |
+| [{label: string, value: string}] <br/> (Array of Object of the given type) | Array of options for user to choose from |
+
+This is a required prop. The **option** prop accepts an array of Object of the following type
+
+```js
+{label: string, value: string}
+```
+
+The Label contains the text to be shown to the user inside a button as an option. Sometimes the displayed label text isn't useful to work with, hence an alternate value is also provided.

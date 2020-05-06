@@ -1,0 +1,96 @@
+# API
+
+There are only four components exported from **`chatty-form`**
+
+- **ChattyForm**
+- **Input**
+- **Select**
+- **Multiselect**
+
+The flow of the UI is as follows.
+
+1. A question is presented to the user. (A question can have a pretext which is just another message block preceeding the question block).
+2. User selects from the options or inputs appropriate response.
+3. The answer selected by the user is presented in an answer block. By default it just displays the answer(s) selected/entered back to the user but this can be customized to render anything.
+
+### ChattyForm
+
+This is the parent component which has to be wrapped around any of the data capturing components (Input, Select or MultiSelect) to make the form functional. It takes care of the state of the form, handles scroll, orchestrates animations and controls the theme/style of the form.
+
+Each child of ChattyForm **must have a diffferent name prop** to function properly.
+
+### Input
+
+```.jsx
+<ChattyForm>
+  <Input
+    name="name"
+    question="Howdy! What's your name?"
+    placeholder="Type your answer"
+  />
+</ChattyForm>
+```
+
+### Select
+
+```.jsx
+<ChattyForm>
+  <Select
+    name="pet"
+    question="Do you like dogs more or cats?"
+    options={[
+      { label: 'Dogs', value: 'dogs' },
+      { label: 'Cats', value: 'cats' },
+    ]}
+  />
+</ChattyForm>
+```
+
+### MultiSelect
+
+```.jsx
+<ChattyForm>
+  <MultiSelect
+    name="multi"
+    question="Which of these are fruits?"
+    options={[
+      { label: 'Pumpkins', value: 'pumpkins' },
+      { label: 'Peppers', value: 'peppers' },
+      { label: 'Cucumber', value: 'cucumber' },
+      { label: 'Tomato  ', value: 'tomato' },
+      { label: 'Peas  ', value: 'peas' },
+    ]}
+  />
+</ChattyForm>
+```
+
+### Putting them all together
+
+```.jsx
+<ChattyForm disableAutoScroll>
+  <Input
+    name="name"
+    question="Howdy! What's your name?"
+    placeholder="Type your answer"
+  />
+  <Select
+    name="pet"
+    question="Do you like dogs more or cats?"
+    options={[
+      { label: 'Dogs', value: 'dogs' },
+      { label: 'Cats', value: 'cats' },
+    ]}
+  />
+  <MultiSelect
+    name="multi"
+    question="Which of these are fruits?"
+    options={[
+      { label: 'Pumpkins', value: 'pumpkins' },
+      { label: 'Peppers', value: 'peppers' },
+      { label: 'Cucumber', value: 'cucumber' },
+      { label: 'Tomato  ', value: 'tomato' },
+      { label: 'Peas  ', value: 'peas' },
+    ]}
+  />
+</ChattyForm>
+```

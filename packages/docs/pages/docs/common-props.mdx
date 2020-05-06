@@ -1,0 +1,87 @@
+# Common Props
+
+Every input element (Input, Select, MultiSelect) in this library has a bunch of common props with same functionality. They're listed in this page to avoid redundancy.
+
+## name
+
+| Type              | Default | Description                                              |
+| ----------------- | :-----: | -------------------------------------------------------- |
+| string (required) |    -    | The name corresponding to the input for the form's state |
+
+The name corresponding to the input (the answer to the question asked) in the formState. Every input element **must** have different names.
+
+## pretext
+
+| Type                | Default | Description                                               |
+| ------------------- | :-----: | --------------------------------------------------------- |
+| string or ReactNode |    -    | Text or ReactNode for information preceding the question. |
+
+The **pretext** prop takes a string or a react node which is rendered right before the question block. This can be used to provide context about the question you're about to ask or serve as a reply for the previous answer.
+This is an option al prop and can accept both string and ReactNode.
+
+```.jsx
+<ChattyForm disableAutoScroll>
+  <Input
+    name="name"
+    pretext="I'm gonna ask you your name. Be prepared."
+    question="Howdy! What's your name?"
+    placeholder="Type your answer"
+  />
+  <Select
+    name="pet"
+    pretext="You have an awesome name."
+    question="Do you like dogs more or cats?"
+    options={[
+      { label: 'Dogs', value: 'dogs' },
+      { label: 'Cats', value: 'cats' },
+    ]}
+  />
+</ChattyForm>
+```
+
+## question
+
+| Type                           | Default | Description                                         |
+| ------------------------------ | :-----: | --------------------------------------------------- |
+| string or ReactNode (required) |    -    | The text or ReactNode for the question to be asked. |
+
+This is a mandatory prop. It contains the text for the question to be asked to the end user. Also accepts ReactNode.
+
+## renderAnswer
+
+| Type                                        | Default | Description                            |
+| ------------------------------------------- | :-----: | -------------------------------------- |
+| Function: (answer) => string \|\| reactNode |    -    | The text for the question to be asked. |
+
+When a answer is entered/selected by the end user, the answer block displays the same selected answer(s) by default. We can override this behavoir using the **renderAnswer** prop.
+
+The **renderAnswer** takes recieves the user entered answer as an argument. Whatever is returned by **renderAnswer** prop is rendered in the Answer Block. Example Below.
+
+```.jsx
+<ChattyForm disableAutoScroll>
+  <Input
+    name="age"
+    question="What's your age?"
+    type="number"
+    renderAnswer={(age) => (age < 18 ? 'Kiddo Age' : 'Gotta pay taxes age')}
+  />
+</ChattyForm>
+```
+
+## finaltext
+
+| Type                | Default | Description                                         |
+| ------------------- | :-----: | --------------------------------------------------- |
+| string or ReactNode |    -    | Text or ReactNode as a reply for the final question |
+
+Since there are no questions succeeding the final answer is entered, this is a way to give the user one final message prompt.
+
+```.jsx
+<ChattyForm disableAutoScroll>
+  <Input
+    name="age"
+    question="What's your name?"
+    finaltext="Thanks for playing"
+  />
+</ChattyForm>
+```

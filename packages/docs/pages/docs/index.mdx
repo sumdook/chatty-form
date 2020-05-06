@@ -1,0 +1,40 @@
+# Getting Started
+
+Install chatty-form in your project from npm or yarn
+
+```sh
+npm install chatty-form
+
+# or
+
+yarn add chatty-form
+```
+
+This package contains only 4 components. A parent **ChattyForm** component and three input components **Input, Select & MultiSelect** which interact with the user.
+Wrap any of the input component in **`<Chattyform/>`** to get started. Let's write the basic amount of code to get it up and running.
+
+```jsx
+import { ChattyForm, Input } from 'chatty-form';
+```
+
+```.jsx
+<ChattyForm>
+  <Input
+    name="name"
+    question="Howdy! What's your name?"
+    placeholder="Type your answer"
+  />
+</ChattyForm>
+```
+
+There you go! We are now successfully using chatty-form.
+
+---
+
+According the the library semantics and the naming used internally, each chat block of UI which captures the user's input contains a question block, an InputSection and the answer block.
+
+The flow of the UI is as follows.
+
+1. A question is presented to the user. (A question can have a pretext which is just another message block preceeding the question block).
+2. User selects from the options or inputs appropriate response.
+3. The answer selected by the user is presented in an answer block. By default it just displays the answer(s) selected/entered back to the user but this can be customized to render anything.
