@@ -135,6 +135,12 @@ const theme = {
       borderRadius: 10,
       transition: 'color 0.3s, background 0.3s',
     },
+    header: {
+      variant: 'buttons.primary',
+      py: 2,
+      display: ['block', 'block', 'none'],
+      mr: 3,
+    },
     theme: {
       cursor: 'pointer',
       p: 0,

@@ -8,7 +8,8 @@
   },
   "dependencies": {
     "@mdx-js/mdx": "^0.15.0",
-    "chatty-form": "^1.0.0",
+    "chatty-form": "^1.0.1",
+    "framer-motion": "^1.10.3",
     "mdx-docs": "^2.0.0-alpha.0",
     "next": "^9.3.6",
     "prop-types": "^15.6.2",

@@ -9,12 +9,9 @@ import pkg from './package.json';
 const production = !process.env.ROLLUP_WATCH;
 
 const plugins = [
-  external({
-    includeDependencies: true,
-  }),
+  external({ includeDependencies: true }),
   resolve(),
   babel({
-    presets: [['@babel/preset-env', { modules: false }], '@babel/preset-react'],
     exclude: 'node_modules/**',
   }),
   commonjs(),

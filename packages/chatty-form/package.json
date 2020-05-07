@@ -1,6 +1,6 @@
 {
   "name": "chatty-form",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "description": "A highly theme-able and customisable form in the shape of a chat based interface for React.",
   "author": "Soumik Sur <soumiksur.me@gmail.com>",
@@ -17,31 +17,33 @@
   "source": "components/index.js",
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "prepublishOnly": "rm -rf lib && yarn build"
   },
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
   "dependencies": {
-    "@emotion/styled": "^10.0.27",
     "@rebass/forms": "^4.0.6",
     "deepmerge": "^4.2.2",
     "emotion-theming": "^10.0.27",
-    "framer-motion": "^1.10.3",
     "prop-types": "^15.7.2",
     "rebass": "^4.0.7"
   },
   "devDependencies": {
+    "@babel/core": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@rollup/plugin-babel": "^5.0.0",
     "@rollup/plugin-commonjs": "11.0.2",
     "@rollup/plugin-node-resolve": "7.1.1",
+    "babel-loader": "^8.1.0",
     "bundlesize": "^0.18.0",
     "rollup": "1.31.0",
     "rollup-plugin-peer-deps-external": "^2.2.2",
     "rollup-plugin-terser": "^5.3.0"
   },
   "peerDependencies": {
+    "framer-motion": "^1.10.3",
     "react": ">=16.8",
     "react-dom": ">=16.8"
   },

@@ -27,9 +27,7 @@ export default function Header() {
       </Link>
       <Flex>
         <Link href="/docs">
-          <Button sx={{ display: ['block', 'block', 'none'], mr: 3, py: 2 }}>
-            Docs
-          </Button>
+          <Button variant="header">Docs</Button>
         </Link>
         <a href="https://github.com/sumdook/chatty-form" target="_blank">
           <IconButton

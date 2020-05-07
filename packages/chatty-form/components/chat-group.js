@@ -1,14 +1,8 @@
 import React from 'react';
-import { Box, Text } from 'rebass';
+import { Box, Flex as F, Text } from 'rebass';
 import { motion } from 'framer-motion';
-import styled from '@emotion/styled';
 
-const Flex = styled(motion.div)`
-  width: 100%;
-  display: flex;
-  justify-content: ${(props) => props.justifyContent || 'flex-start'};
-  align-items: ${(props) => props.alignItems || 'flex-start'};
-`;
+const Flex = motion.custom(F);
 
 const ChatGroup = ({
   pretext,
