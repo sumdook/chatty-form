@@ -69,12 +69,14 @@ const InputSection = ({
           placeholder={placeholder}
           onChange={(e) => set(e.target.value)}
           type={type}
+          aria-label={name}
         />
       )}
       {!state[name] && (
         <Button
           fontSize={3}
           variant="input"
+          aria-label="send"
           onClick={() => {
             if (typeof validate !== 'function') {
               return dispatch({ type: name, payload: value });

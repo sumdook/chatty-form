@@ -61,6 +61,7 @@ const Input = ({ state, name, dispatch, options }) => {
       {!state[name] && (
         <Button
           onClick={() => dispatch({ type: name, payload: selected })}
+          aria-label="send"
           variant="action"
         >
           {selected.length === 0 ? (
