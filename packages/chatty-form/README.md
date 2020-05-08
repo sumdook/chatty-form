@@ -5,14 +5,14 @@
 
 ## Getting Started
 
-Install chatty-form in your project from npm or yarn
+Install chatty-form and it's peer dependencies in your project from npm or yarn
 
 ```sh
-npm install chatty-form
+npm install chatty-form framer-motion
 
 # or
 
-yarn add chatty-form
+yarn add chatty-form framer-motion
 ```
 
 ## Usage
