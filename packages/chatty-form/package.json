@@ -1,6 +1,6 @@
 {
   "name": "chatty-form",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "description": "A highly theme-able and customisable form in the shape of a chat based interface for React.",
   "author": "Soumik Sur <soumiksur.me@gmail.com>",
