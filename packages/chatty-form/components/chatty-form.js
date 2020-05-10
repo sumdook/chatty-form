@@ -13,6 +13,7 @@ export const ChattyForm = ({
   onSubmit,
 }) => {
   if (!children) return null;
+  // handling the case when there's a singlle child
   const childrenArray = Array.isArray(children) ? children : [children];
   const initialState = childrenArray.reduce(
     (acc, child) => Object.assign(acc, { [child.props.name]: null }),
@@ -22,22 +23,29 @@ export const ChattyForm = ({
     return { ...state, [type]: payload };
   };
   const [state, dispatch] = React.useReducer(reducer, initialState);
+
   React.useEffect(() => {
-    if (onChange) {
-      if (state[Object.keys(state)[0]]) {
-        onChange(state);
-      }
+    // Only call after altealst one question is answered
+    if (
+      Object.keys(state).some((key) => state[key] !== null) &&
+      typeof onChange === 'function'
+    ) {
+      onChange(state);
     }
   });
   React.useEffect(() => {
+    // Only call after the last question is answered
     if (
       Object.keys(state).every((key) => state[key] !== null) &&
       typeof onSubmit === 'function'
     ) {
+      console.log('calling onSubmit');
       onSubmit(state);
     }
   });
 
+  // Logic to render the question only when the precious one has been answered
+  // The first one has to be rendered by default though
   return (
     <ThemeProvider theme={merge(defaultTheme, theme)}>
       {React.cloneElement(childrenArray[0], {
